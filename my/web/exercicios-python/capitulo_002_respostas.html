@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 2 — Respostas — Estruturas de Dados: Listas, Tuplas, Dicionários e Conjuntos</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 2 &middot; Respostas</p>
+<h1>Estruturas de Dados: Listas, Tuplas, Dicionários e Conjuntos &mdash; Respostas</h1>
+<p class="page-lede">Soluções comentadas dos exercícios deste capítulo. Tenta resolver primeiro sem espreitar.</p>
+<div class="page-actions">
+  <a href="capitulo_002_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Lista de compras</h3>
+  </div>
+  <div class="statement">
+    <p>A partir de <code>compras = ["arroz", "sabão", "feijão"]</code>: adiciona
+                <code>"detergente"</code> ao fim da lista com <code>.append()</code>; insere
+                <code>"pão"</code> na posição 0 com <code>.insert()</code>; remove
+                <code>"sabão"</code> com <code>.remove()</code>. Mostra a lista final.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>compras = ["arroz", "sabão", "feijão"]
+
+compras.append("detergente")
+compras.insert(0, "pão")
+compras.remove("sabão")
+
+print(compras)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>['pão', 'arroz', 'feijão', 'detergente']</code></pre></div>
+  <div class="explanation"><p><code>.append()</code> acrescenta sempre ao fim; <code>.insert(posição, valor)</code>
+                empurra os elementos seguintes uma posição para a frente; <code>.remove(valor)</code>
+                elimina a primeira ocorrência desse valor (e geraria <code>ValueError</code> se o
+                valor não existisse na lista).</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Tupla de coordenadas</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma tupla <code>coordenadas</code> com a latitude e a longitude de
+                Luanda: <code>(-8.8368, 13.2343)</code>. Acede à latitude com um índice
+                positivo e à longitude com um índice negativo, guardando cada uma numa
+                variável.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>coordenadas = (-8.8368, 13.2343)
+
+latitude = coordenadas[0]
+longitude = coordenadas[-1]
+
+print("Latitude:", latitude)
+print("Longitude:", longitude)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Latitude: -8.8368
+Longitude: 13.2343</code></pre></div>
+  <div class="explanation"><p>Tuplas acedem-se exatamente como listas, através de índices entre
+                <code>[]</code>, apesar de não poderem ser alteradas depois de criadas.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Dicionário de um aluno</h3>
+  </div>
+  <div class="statement">
+    <p>Cria um dicionário <code>aluno</code> com as chaves <code>"nome"</code>,
+                <code>"idade"</code> e <code>"curso"</code>. Acede e mostra cada valor
+                individualmente através da sua chave (sem usar um ciclo).</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>aluno = {"nome": "Beatriz", "idade": 21, "curso": "Engenharia Informática"}
+
+print(aluno["nome"])
+print(aluno["idade"])
+print(aluno["curso"])</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Beatriz
+21
+Engenharia Informática</code></pre></div>
+  <div class="explanation"><p>Num dicionário, o índice entre <code>[]</code> não é uma posição numérica
+                como nas listas, mas sim a chave que identifica o valor.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Fatiar sem usar ciclos</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]</code>, usa
+                apenas <em>slicing</em> (sem ciclos) para obter: (a) os três primeiros
+                elementos; (b) os três últimos; (c) a lista invertida; (d) apenas os elementos
+                em posições pares (índices 0, 2, 4&hellip;).</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+tres_primeiros = numeros[:3]
+tres_ultimos = numeros[-3:]
+invertida = numeros[::-1]
+pares = numeros[::2]
+
+print(tres_primeiros)
+print(tres_ultimos)
+print(invertida)
+print(pares)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>[10, 20, 30]
+[80, 90, 100]
+[100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
+[10, 30, 50, 70, 90]</code></pre></div>
+  <div class="explanation"><p>Todo o intervalo em Python é <code>[início:fim:passo]</code>, fechado no
+                início e aberto no fim. Um passo negativo (<code>-1</code>) percorre a lista
+                de trás para a frente.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>União, interseção e diferenças</h3>
+  </div>
+  <div class="statement">
+    <p>Dois grupos partilham alguns membros: <code>grupo_a = {"Ana", "Bruno",
+                "Carla", "Diogo"}</code> e <code>grupo_b = {"Carla", "Diogo", "Elsa",
+                "Fábio"}</code>. Calcula e mostra a união, a interseção, a diferença
+                <code>grupo_a - grupo_b</code> e a diferença simétrica.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>grupo_a = {"Ana", "Bruno", "Carla", "Diogo"}
+grupo_b = {"Carla", "Diogo", "Elsa", "Fábio"}
+
+uniao = grupo_a | grupo_b               # ou grupo_a.union(grupo_b)
+intersecao = grupo_a &amp; grupo_b          # ou grupo_a.intersection(grupo_b)
+diferenca = grupo_a - grupo_b           # ou grupo_a.difference(grupo_b)
+dif_simetrica = grupo_a ^ grupo_b       # ou grupo_a.symmetric_difference(grupo_b)
+
+print("União:", uniao)
+print("Interseção:", intersecao)
+print("Diferença (A - B):", diferenca)
+print("Diferença simétrica:", dif_simetrica)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>União: {'Ana', 'Bruno', 'Carla', 'Diogo', 'Elsa', 'Fábio'}
+Interseção: {'Carla', 'Diogo'}
+Diferença (A - B): {'Ana', 'Bruno'}
+Diferença simétrica: {'Ana', 'Bruno', 'Elsa', 'Fábio'}</code></pre></div>
+  <div class="explanation"><p>A ordem dos elementos pode variar na tua execução, porque conjuntos não
+                mantêm ordem. Os operadores <code>| & - ^</code> são atalhos para os métodos
+                <code>.union()</code>, <code>.intersection()</code>, <code>.difference()</code>
+                e <code>.symmetric_difference()</code>.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Prevê a saída: referência ou cópia?</h3>
+  </div>
+  <div class="statement">
+    <p>Prevê a saída deste código e explica a diferença entre <code>b</code> e <code>c</code>:</p><div class="code-block"><pre><code>a = [1, 2, 3]
+b = a
+c = a[:]
+b.append(4)
+c.append(5)
+print(a)
+print(b)
+print(c)
+print(a is b)
+print(a is c)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>a = [1, 2, 3]
+b = a        # b é apenas outro nome para a mesma lista
+c = a[:]     # c é uma cópia independente (nova lista)
+
+b.append(4)  # afeta também a, porque a e b são o mesmo objeto
+c.append(5)  # afeta só c
+
+print(a)
+print(b)
+print(c)
+print(a is b)
+print(a is c)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>[1, 2, 3, 4]
+[1, 2, 3, 4]
+[1, 2, 3, 5]
+True
+False</code></pre></div>
+  <div class="explanation"><p><code>b = a</code> não cria uma lista nova: dá apenas um segundo nome ao
+                mesmo objeto na memória, por isso alterar <code>b</code> altera
+                <code>a</code>. Já <code>c = a[:]</code> fatia do início ao fim, o que cria
+                uma lista independente &mdash; alterar <code>c</code> não afeta
+                <code>a</code>.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Matriz de notas (listas encadeadas)</h3>
+  </div>
+  <div class="statement">
+    <p><code>notas_turma = [[14, 16, 12], [18, 17, 19], [10, 8, 13]]</code> guarda
+                as notas de 3 alunos, uma sublista por aluno. Sem ciclos, acede à segunda nota
+                do terceiro aluno, e calcula a média do primeiro aluno usando <code>sum()</code>
+                e <code>len()</code> sobre a sua sublista.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>notas_turma = [[14, 16, 12], [18, 17, 19], [10, 8, 13]]
+
+segunda_nota_terceiro_aluno = notas_turma[2][1]
+media_primeiro_aluno = sum(notas_turma[0]) / len(notas_turma[0])
+
+print(segunda_nota_terceiro_aluno)
+print(media_primeiro_aluno)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>8
+14.0</code></pre></div>
+  <div class="explanation"><p>Numa lista de listas, o primeiro índice escolhe a sublista (o aluno) e o
+                segundo escolhe o elemento dentro dela (a nota). <code>notas_turma[2]</code> é
+                a lista do terceiro aluno; <code>[1]</code> é a segunda nota dessa lista.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>A pegadinha da cópia rasa</h3>
+  </div>
+  <div class="statement">
+    <p>Prevê a saída e explica por que motivo, mesmo usando <code>[:]</code>,
+                alterar <code>b</code> também pode afetar <code>a</code> neste caso:</p><div class="code-block"><pre><code>a = [1, [2, 3]]
+b = a[:]
+b[0] = 99
+b[1][0] = 77
+print(a)
+print(b)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>a = [1, [2, 3]]
+b = a[:]      # cópia rasa: só o "invólucro" externo é novo
+
+b[0] = 99       # não afeta a (99 substitui o item, não altera o objeto antigo)
+b[1][0] = 77    # afeta a! a sublista [2, 3] continua a ser partilhada
+
+print(a)
+print(b)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>[1, [77, 3]]
+[99, [77, 3]]</code></pre></div>
+  <div class="explanation"><p><code>a[:]</code> faz uma <em>cópia rasa</em> (shallow copy): duplica a
+                lista externa, mas os elementos internos que são objetos mutáveis (como a
+                sublista <code>[2, 3]</code>) continuam a ser os mesmos objetos partilhados
+                entre <code>a</code> e <code>b</code>. Por isso <code>b[0] = 99</code>
+                (substituir um inteiro) não afeta <code>a</code>, mas <code>b[1][0] = 77</code>
+                (alterar dentro da sublista partilhada) afeta os dois. Para copiar também os
+                elementos internos, seria preciso um <em>deep copy</em>
+                (<code>import copy; copy.deepcopy(a)</code>).</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Dicionário aninhado</h3>
+  </div>
+  <div class="statement">
+    <p><code>turma = {"joao": {"idade": 20, "notas": [14, 16, 15]}, "irina":
+                {"idade": 22, "notas": [18, 19, 17]}}</code> guarda dados de dois alunos. Sem
+                ciclos, acede à terceira nota da irina e calcula a média das notas do joão
+                encadeando <code>sum()</code>/<code>len()</code> diretamente sobre o valor da
+                chave.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>turma = {
+    "joao": {"idade": 20, "notas": [14, 16, 15]},
+    "irina": {"idade": 22, "notas": [18, 19, 17]},
+}
+
+terceira_nota_irina = turma["irina"]["notas"][2]
+media_joao = sum(turma["joao"]["notas"]) / len(turma["joao"]["notas"])
+
+print(terceira_nota_irina)
+print(media_joao)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>17
+15.0</code></pre></div>
+  <div class="explanation"><p>Cada par de <code>[chave]</code> "desce" um nível na estrutura:
+                <code>turma["irina"]</code> devolve o dicionário da irina,
+                <code>["notas"]</code> devolve a lista de notas dela, e <code>[2]</code>
+                devolve o terceiro elemento dessa lista.</p></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a href="capitulo_002_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html">Cap. 1</a>
+<a href="capitulo_002_exercicios.html" class="current">Cap. 2</a>
+<a href="capitulo_003_exercicios.html">Cap. 3</a>
+<a href="capitulo_004_exercicios.html">Cap. 4</a>
+<a href="capitulo_005_exercicios.html">Cap. 5</a>
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>

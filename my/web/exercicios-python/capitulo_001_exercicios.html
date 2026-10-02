@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 1 — Exercícios — Sintaxe Básica, Variáveis e Tipos de Dados</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 1 &middot; Exercícios</p>
+<h1>Sintaxe Básica, Variáveis e Tipos de Dados</h1>
+<p class="page-lede">Comentários, indentação, input/output, variáveis, tipos (int, float, str, bool), casting, operadores aritméticos e relacionais, strings, .format(), f-strings e funções built-in.</p>
+<div class="page-actions">
+  <a class="primary" href="capitulo_001_respostas.html">Ver respostas deste capítulo</a>
+  <a href="index.html">Voltar ao índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Apresentação pessoal</h3>
+  </div>
+  <div class="statement">
+    <p>Cria três variáveis: <code>nome</code> (string), <code>idade</code> (inteiro) e
+                <code>cidade</code> (string) com os teus próprios dados.</p>
+<p>Depois, usa um único <code>print()</code> com vírgulas para exibir a frase:
+                &ldquo;&lt;nome&gt; tem &lt;idade&gt; anos e mora em &lt;cidade&gt;.&rdquo;</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>nome = ...
+idade = ...
+cidade = ...
+
+# a tua linha de print() aqui</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>As sete operações aritméticas</h3>
+  </div>
+  <div class="statement">
+    <p>Pede ao utilizador dois números com <code>input()</code> (converte-os para
+                <code>float</code>) e mostra o resultado das sete operações aritméticas do Python:
+                soma, subtração, multiplicação, divisão, divisão inteira, resto e potenciação.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>a = float(input("Primeiro número: "))
+b = float(input("Segundo número: "))
+# completa aqui com os 7 print()</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Descobrir o tipo de cada variável</h3>
+  </div>
+  <div class="statement">
+    <p>Cria quatro variáveis: uma <code>int</code>, uma <code>float</code>, uma
+                <code>str</code> e uma <code>bool</code>, cada uma com um valor à tua escolha.
+                Usa a função <code>type()</code> para mostrar o tipo de cada uma.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code># cria as 4 variáveis e usa print(type(...)) em cada uma</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Cálculo dentro da f-string</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma variável <code>idade</code> com a tua idade atual. Usando f-string,
+                escreve numa única linha uma frase que diga quantos anos terás daqui a 10 anos,
+                fazendo o cálculo <strong>dentro</strong> das chavetas <code>{}</code> da própria
+                f-string (sem calcular numa variável separada antes).</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>idade = ...
+print(f"...")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Prevê a saída: == contra is</h3>
+  </div>
+  <div class="statement">
+    <p>Sem executar, diz o que será impresso em cada uma das quatro linhas abaixo
+                e explica porquê. Depois corre o código para confirmar.</p><div class="code-block"><pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+print(a == b)
+print(a is b)
+print(a is c)
+print(b == c)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Par ou ímpar, sem usar if</h3>
+  </div>
+  <div class="statement">
+    <p>Pede um número inteiro ao utilizador. Sem usar <code>if</code> (as
+                condicionais são o assunto do próximo capítulo), guarda o resultado de uma
+                comparação relacional com o operador <code>%</code> numa variável booleana
+                <code>eh_par</code>, e mostra uma frase com f-string que use essa variável
+                diretamente dentro do texto.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>numero = int(input("Digite um número inteiro: "))
+eh_par = ...
+print(f"...")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Área e perímetro com formatação</h3>
+  </div>
+  <div class="statement">
+    <p>Uma pizzaria quer calcular a área e o perímetro (circunferência) de pizzas
+                redondas. Pede ao utilizador o raio da pizza em cm e, usando a biblioteca
+                <code>math</code> e f-strings com formatação de duas casas decimais
+                (<code>:.2f</code>), mostra a área (&pi;&middot;r&sup2;) e o perímetro
+                (2&middot;&pi;&middot;r).</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>import math
+
+raio = float(input("Raio da pizza em cm: "))
+# calcula area e perimetro e mostra com 2 casas decimais</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Troco em notas, só com // e %</h3>
+  </div>
+  <div class="statement">
+    <p>Um multibanco só tem notas de 2000, 1000, 500 e 100 Kz. Escreve um programa
+                que recebe um valor inteiro em Kz (via <code>input()</code>) e calcula quantas
+                notas de cada valor serão entregues, usando apenas divisão inteira
+                (<code>//</code>) e resto (<code>%</code>) em cadeia &mdash; sem usar
+                <code>if</code> nem ciclos.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>valor = int(input("Valor a levantar (Kz): "))
+# usa // e % em cadeia</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>A mesma frase de três formas</h3>
+  </div>
+  <div class="statement">
+    <p>Dado <code>nome = "Eliandro"</code> e <code>linguagem = "Python"</code>,
+                escreve a mesma frase &ldquo;Eliandro está a aprender Python.&rdquo; de três
+                formas diferentes: (1) concatenação com <code>+</code>; (2) o método
+                <code>.format()</code> com índices posicionais; (3) f-string. No final, usa o
+                operador <code>==</code> para confirmar que as três strings resultantes são
+                idênticas.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>nome = "Eliandro"
+linguagem = "Python"
+
+# frase1 com +, frase2 com .format(), frase3 com f-string</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a class="primary" href="capitulo_001_respostas.html">Ver respostas deste capítulo</a>
+  <a href="index.html">Voltar ao índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html" class="current">Cap. 1</a>
+<a href="capitulo_002_exercicios.html">Cap. 2</a>
+<a href="capitulo_003_exercicios.html">Cap. 3</a>
+<a href="capitulo_004_exercicios.html">Cap. 4</a>
+<a href="capitulo_005_exercicios.html">Cap. 5</a>
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>

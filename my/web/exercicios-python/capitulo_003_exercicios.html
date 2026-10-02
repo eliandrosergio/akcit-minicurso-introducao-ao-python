@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 3 — Exercícios — Estruturas de Controlo de Fluxo</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 3 &middot; Exercícios</p>
+<h1>Estruturas de Controlo de Fluxo</h1>
+<p class="page-lede">if/elif/else, match-case, for e while, comprehensions, break/continue/pass e try-except.</p>
+<div class="page-actions">
+  <a class="primary" href="capitulo_003_respostas.html">Ver respostas deste capítulo</a>
+  <a href="index.html">Voltar ao índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Classificar uma nota</h3>
+  </div>
+  <div class="statement">
+    <p>Pede uma nota (0 a 20) ao utilizador. Usando <code>if</code>/<code>elif</code>/
+                <code>else</code>, imprime <code>"Aprovado"</code> se a nota for &ge; 10,
+                <code>"Recuperação"</code> se estiver entre 7 (incluído) e 10 (excluído), e
+                <code>"Reprovado"</code> caso contrário.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>nota = float(input("Nota do aluno (0 a 20): "))
+# if / elif / else</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Tabuada com range()</h3>
+  </div>
+  <div class="statement">
+    <p>Pede um número inteiro ao utilizador e usa um <code>for</code> com
+                <code>range()</code> para imprimir a sua tabuada, de 1 a 10 (por exemplo,
+                <code>"7 x 1 = 7"</code>).</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>numero = int(input("Número da tabuada: "))
+for i in range(...):
+    ...</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Somar até ultrapassar 100</h3>
+  </div>
+  <div class="statement">
+    <p>Usa um <code>while</code> para somar números inteiros consecutivos a partir
+                de 1 (1, depois 1+2, depois 1+2+3&hellip;) até a soma ultrapassar 100. No
+                final, mostra quantos números foram somados e qual foi a soma total.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>soma = 0
+numero = 0
+while soma &lt;= 100:
+    ...</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Lista numerada com enumerate()</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>ingredientes = ["farinha", "ovos", "açúcar", "manteiga"]</code>,
+                usa <code>for</code> com <code>enumerate()</code> para imprimir uma lista
+                numerada a partir de 1, no formato <code>"1. farinha"</code>.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>ingredientes = ["farinha", "ovos", "açúcar", "manteiga"]
+for i, item in enumerate(...):
+    ...</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>List comprehension: cubos pares</h3>
+  </div>
+  <div class="statement">
+    <p>Usando list comprehension (numa única linha), cria uma lista com os cubos
+                (<code>x**3</code>) de todos os números pares entre 0 e 20, incluindo o 20.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>cubos_pares = [... for x in range(...) if ...]</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>break e continue</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>valores = [4, 8, 15, -3, 16, 23, 42]</code>: (a) usa
+                <code>for</code> + <code>break</code> para percorrer a lista e parar assim que
+                encontrar o primeiro número negativo, mostrando cada número visto até aí; (b)
+                num novo <code>for</code> sobre a mesma lista, usa <code>continue</code> para
+                não mostrar os múltiplos de 3.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>valores = [4, 8, 15, -3, 16, 23, 42]
+# (a) for + break
+# (b) for + continue</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>try-except com erros específicos</h3>
+  </div>
+  <div class="statement">
+    <p>Pede dois números ao utilizador e tenta dividir o primeiro pelo segundo,
+                tratando separadamente dois erros possíveis: <code>ValueError</code> (o
+                utilizador digitou algo que não é um número) e <code>ZeroDivisionError</code>
+                (o segundo número é 0), cada um com a sua própria mensagem.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>try:
+    a = float(input("Primeiro número: "))
+    b = float(input("Segundo número: "))
+    ...
+except ValueError:
+    ...
+except ZeroDivisionError:
+    ...</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>match-case para códigos HTTP</h3>
+  </div>
+  <div class="statement">
+    <p>Pede ao utilizador um código de status HTTP (inteiro) e usa
+                <code>match</code>/<code>case</code> para mostrar a mensagem correspondente:
+                200&nbsp;&rarr;&nbsp;&ldquo;OK&rdquo;, 301&nbsp;&rarr;&nbsp;&ldquo;Redirecionado&rdquo;,
+                404&nbsp;&rarr;&nbsp;&ldquo;Não encontrado&rdquo;, 500&nbsp;&rarr;&nbsp;&ldquo;Erro
+                interno do servidor&rdquo;, e 400 <em>ou</em> 401 juntos
+                &rarr;&nbsp;&ldquo;Pedido inválido ou não autorizado&rdquo;. Qualquer outro
+                valor deve mostrar &ldquo;Código desconhecido&rdquo;.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>codigo = int(input("Código de status HTTP: "))
+match codigo:
+    case 200:
+        ...</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Dict comprehension com filtro</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>palavras = ["sol", "computador", "python", "eu", "programação",
+                "ia"]</code>, cria (numa linha, com dict comprehension) um dicionário que
+                associe cada palavra com <strong>mais de 3 letras</strong> ao seu número de
+                letras.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>palavras = ["sol", "computador", "python", "eu", "programação", "ia"]
+tamanhos = {... : ... for ... in ... if ...}</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a class="primary" href="capitulo_003_respostas.html">Ver respostas deste capítulo</a>
+  <a href="index.html">Voltar ao índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html">Cap. 1</a>
+<a href="capitulo_002_exercicios.html">Cap. 2</a>
+<a href="capitulo_003_exercicios.html" class="current">Cap. 3</a>
+<a href="capitulo_004_exercicios.html">Cap. 4</a>
+<a href="capitulo_005_exercicios.html">Cap. 5</a>
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>

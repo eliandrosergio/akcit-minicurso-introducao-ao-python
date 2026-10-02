@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 5 — Respostas — Manipulação de Arquivos</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 5 &middot; Respostas</p>
+<h1>Manipulação de Arquivos &mdash; Respostas</h1>
+<p class="page-lede">Soluções comentadas dos exercícios deste capítulo. Tenta resolver primeiro sem espreitar.</p>
+<div class="page-actions">
+  <a href="capitulo_005_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Criar um arquivo de notas</h3>
+  </div>
+  <div class="statement">
+    <p>Cria a lista <code>notas = ["Matemática: 16", "Português: 14",
+                "Informática: 18"]</code> e escreve cada item numa linha separada de um
+                arquivo chamado <code>notas.txt</code>, usando <code>with</code> e o modo
+                <code>"w"</code>.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>notas = ["Matemática: 16", "Português: 14", "Informática: 18"]
+
+with open("notas.txt", "w") as arquivo:
+    for linha in notas:
+        arquivo.write(linha + "\n")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>(sem saída no ecrã — o arquivo notas.txt é criado com 3 linhas)</code></pre></div>
+  <div class="explanation"><p>O modo <code>"w"</code> cria o arquivo se ele não existir, e apaga todo o
+                conteúdo anterior se já existir. <code>write()</code> não acrescenta quebras de
+                linha sozinho, por isso somamos <code>"\n"</code> a cada linha.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Mostrar o conteúdo de um arquivo</h3>
+  </div>
+  <div class="statement">
+    <p>Escreve uma função <code>mostrar_conteudo(caminho)</code> que abre o
+                arquivo em modo de leitura e imprime todo o seu conteúdo, usando
+                <code>with</code>.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def mostrar_conteudo(caminho):
+    with open(caminho, "r") as arquivo:
+        conteudo = arquivo.read()
+        print(conteudo)
+
+mostrar_conteudo("notas.txt")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Matemática: 16
+Português: 14
+Informática: 18</code></pre></div>
+  <div class="explanation"><p><code>with open(...) as arquivo</code> garante que o arquivo é sempre
+                fechado corretamente no final do bloco, mesmo que ocorra um erro durante a
+                leitura.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Adicionar sem apagar (append)</h3>
+  </div>
+  <div class="statement">
+    <p>Usando o modo <code>"a"</code>, adiciona a linha <code>"Inglês: 17"</code>
+                ao final de <code>notas.txt</code>, sem apagar o conteúdo já existente. Depois,
+                mostra o conteúdo atualizado.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>with open("notas.txt", "a") as arquivo:
+    arquivo.write("Inglês: 17\n")
+
+mostrar_conteudo("notas.txt")  # reaproveitando a função do exercício anterior</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Matemática: 16
+Português: 14
+Informática: 18
+Inglês: 17</code></pre></div>
+  <div class="explanation"><p>Ao contrário do modo <code>"w"</code>, o modo <code>"a"</code>
+                (<em>append</em>) escreve sempre a partir do final do arquivo, preservando o
+                que já lá estava.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Contar linhas de um arquivo</h3>
+  </div>
+  <div class="statement">
+    <p>Escreve uma função <code>contar_linhas(caminho)</code> que devolve quantas
+                linhas o arquivo tem, usando <code>readlines()</code> e <code>len()</code>.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def contar_linhas(caminho):
+    with open(caminho, "r") as arquivo:
+        return len(arquivo.readlines())
+
+print(contar_linhas("notas.txt"))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>4</code></pre></div>
+  <div class="explanation"><p><code>readlines()</code> devolve uma lista com uma string por linha do
+                arquivo; <code>len()</code> dessa lista dá o número total de linhas.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Contar ocorrências de uma palavra</h3>
+  </div>
+  <div class="statement">
+    <p>Escreve uma função <code>contar_palavra(caminho, palavra)</code> que conta
+                quantas vezes uma palavra aparece no arquivo, usando <code>.split()</code> e
+                <code>.count()</code>.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def contar_palavra(caminho, palavra):
+    with open(caminho, "r") as arquivo:
+        conteudo = arquivo.read()
+    palavras = conteudo.split()
+    return palavras.count(palavra)
+
+print(contar_palavra("notas.txt", "Matemática:"))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>1</code></pre></div>
+  <div class="explanation"><p><code>.split()</code> divide o texto em espaços em branco, mantendo a
+                pontuação colada à palavra &mdash; por isso a busca é por
+                <code>"Matemática:"</code> (com dois pontos), não apenas
+                <code>"Matemática"</code>.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Linhas de um arquivo numa lista, sem \n</h3>
+  </div>
+  <div class="statement">
+    <p>Escreve uma função <code>linhas_para_lista(caminho)</code> que lê o arquivo
+                e devolve uma lista com cada linha, mas sem a quebra de linha
+                (<code>\n</code>) no final de cada elemento.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def linhas_para_lista(caminho):
+    with open(caminho, "r") as arquivo:
+        linhas = arquivo.readlines()
+    return [linha.strip() for linha in linhas]
+
+print(linhas_para_lista("notas.txt"))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>['Matemática: 16', 'Português: 14', 'Informática: 18', 'Inglês: 17']</code></pre></div>
+  <div class="explanation"><p><code>readlines()</code> mantém o <code>\n</code> no fim de cada linha;
+                <code>.strip()</code> remove espaços em branco e quebras de linha das pontas de
+                cada string. A list comprehension aplica <code>.strip()</code> a cada linha de
+                uma só vez.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Tratar arquivo inexistente</h3>
+  </div>
+  <div class="statement">
+    <p>Escreve uma função <code>mostrar_conteudo_seguro(caminho)</code> que tenta
+                mostrar o conteúdo de um arquivo e, se ele não existir, mostra uma mensagem
+                amigável em vez de o programa terminar com um erro.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def mostrar_conteudo_seguro(caminho):
+    try:
+        with open(caminho, "r") as arquivo:
+            print(arquivo.read())
+    except FileNotFoundError:
+        print(f"O arquivo '{caminho}' não foi encontrado.")
+
+mostrar_conteudo_seguro("arquivo_que_nao_existe.txt")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>O arquivo 'arquivo_que_nao_existe.txt' não foi encontrado.</code></pre></div>
+  <div class="explanation"><p>Tentar abrir um arquivo que não existe lança um <code>FileNotFoundError</code>.
+                Ao capturar essa exceção especificamente, conseguimos dar uma resposta clara
+                em vez de deixar o programa parar com um traceback.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Calcular e gravar a média</h3>
+  </div>
+  <div class="statement">
+    <p>O arquivo <code>notas_numericas.txt</code> tem um número por linha. Escreve
+                uma função <code>calcular_e_gravar_media(entrada, saida)</code> que lê essas
+                notas, calcula a média (com 2 casas decimais) e grava o resultado num novo
+                arquivo.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def calcular_e_gravar_media(entrada, saida):
+    with open(entrada, "r") as arquivo:
+        linhas = arquivo.readlines()
+    notas = [float(linha.strip()) for linha in linhas]
+    media = sum(notas) / len(notas)
+    with open(saida, "w") as arquivo:
+        arquivo.write(f"{media:.2f}\n")
+
+calcular_e_gravar_media("notas_numericas.txt", "media.txt")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>(sem saída no ecrã — media.txt passa a conter, por exemplo, "15.67")</code></pre></div>
+  <div class="explanation"><p>A função combina leitura (<code>readlines()</code> + <code>strip()</code> +
+                conversão para <code>float</code>), cálculo (<code>sum()</code>/<code>len()</code>)
+                e escrita (abrindo um segundo arquivo em modo <code>"w"</code>) num único
+                fluxo.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Verificar se um arquivo está em uso</h3>
+  </div>
+  <div class="statement">
+    <p>Escreve uma função <code>arquivo_em_uso(caminho)</code> que tenta detetar
+                se um arquivo está a ser usado por outro processo, tentando renomeá-lo para ele
+                mesmo com <code>os.rename()</code> e capturando o erro correspondente.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>import os
+
+def arquivo_em_uso(caminho):
+    try:
+        os.rename(caminho, caminho)
+        return False
+    except OSError:
+        return True
+
+if not arquivo_em_uso("notas.txt"):
+    with open("notas.txt", "a") as arquivo:
+        arquivo.write("Física: 15\n")
+else:
+    print("O arquivo está em uso, tenta novamente mais tarde.")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>(depende do estado real do arquivo no teu sistema)</code></pre></div>
+  <div class="explanation"><p>A maioria dos sistemas operativos não permite renomear um arquivo que está
+                a ser usado por outro processo. Tentar renomeá-lo para o próprio nome é uma
+                forma indireta de testar isso: se falhar com <code>OSError</code>, é porque
+                está em uso.</p></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a href="capitulo_005_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html">Cap. 1</a>
+<a href="capitulo_002_exercicios.html">Cap. 2</a>
+<a href="capitulo_003_exercicios.html">Cap. 3</a>
+<a href="capitulo_004_exercicios.html">Cap. 4</a>
+<a href="capitulo_005_exercicios.html" class="current">Cap. 5</a>
+
+
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>

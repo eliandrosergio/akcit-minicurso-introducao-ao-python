@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 2 — Exercícios — Estruturas de Dados: Listas, Tuplas, Dicionários e Conjuntos</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 2 &middot; Exercícios</p>
+<h1>Estruturas de Dados: Listas, Tuplas, Dicionários e Conjuntos</h1>
+<p class="page-lede">Criação, acesso, modificação, slicing, métodos de lista, tuplas imutáveis, dicionários chave-valor, operações de conjuntos e a diferença entre referência e cópia.</p>
+<div class="page-actions">
+  <a class="primary" href="capitulo_002_respostas.html">Ver respostas deste capítulo</a>
+  <a href="index.html">Voltar ao índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Lista de compras</h3>
+  </div>
+  <div class="statement">
+    <p>A partir de <code>compras = ["arroz", "sabão", "feijão"]</code>: adiciona
+                <code>"detergente"</code> ao fim da lista com <code>.append()</code>; insere
+                <code>"pão"</code> na posição 0 com <code>.insert()</code>; remove
+                <code>"sabão"</code> com <code>.remove()</code>. Mostra a lista final.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>compras = ["arroz", "sabão", "feijão"]
+# .append(), .insert(), .remove()</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Tupla de coordenadas</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma tupla <code>coordenadas</code> com a latitude e a longitude de
+                Luanda: <code>(-8.8368, 13.2343)</code>. Acede à latitude com um índice
+                positivo e à longitude com um índice negativo, guardando cada uma numa
+                variável.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>coordenadas = (-8.8368, 13.2343)
+# acede com índice positivo e negativo</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Dicionário de um aluno</h3>
+  </div>
+  <div class="statement">
+    <p>Cria um dicionário <code>aluno</code> com as chaves <code>"nome"</code>,
+                <code>"idade"</code> e <code>"curso"</code>. Acede e mostra cada valor
+                individualmente através da sua chave (sem usar um ciclo).</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>aluno = {"nome": ..., "idade": ..., "curso": ...}</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Fatiar sem usar ciclos</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]</code>, usa
+                apenas <em>slicing</em> (sem ciclos) para obter: (a) os três primeiros
+                elementos; (b) os três últimos; (c) a lista invertida; (d) apenas os elementos
+                em posições pares (índices 0, 2, 4&hellip;).</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+# 4 fatiamentos diferentes</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>União, interseção e diferenças</h3>
+  </div>
+  <div class="statement">
+    <p>Dois grupos partilham alguns membros: <code>grupo_a = {"Ana", "Bruno",
+                "Carla", "Diogo"}</code> e <code>grupo_b = {"Carla", "Diogo", "Elsa",
+                "Fábio"}</code>. Calcula e mostra a união, a interseção, a diferença
+                <code>grupo_a - grupo_b</code> e a diferença simétrica.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>grupo_a = {"Ana", "Bruno", "Carla", "Diogo"}
+grupo_b = {"Carla", "Diogo", "Elsa", "Fábio"}
+# união, interseção, diferença, diferença simétrica</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Prevê a saída: referência ou cópia?</h3>
+  </div>
+  <div class="statement">
+    <p>Prevê a saída deste código e explica a diferença entre <code>b</code> e <code>c</code>:</p><div class="code-block"><pre><code>a = [1, 2, 3]
+b = a
+c = a[:]
+b.append(4)
+c.append(5)
+print(a)
+print(b)
+print(c)
+print(a is b)
+print(a is c)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Matriz de notas (listas encadeadas)</h3>
+  </div>
+  <div class="statement">
+    <p><code>notas_turma = [[14, 16, 12], [18, 17, 19], [10, 8, 13]]</code> guarda
+                as notas de 3 alunos, uma sublista por aluno. Sem ciclos, acede à segunda nota
+                do terceiro aluno, e calcula a média do primeiro aluno usando <code>sum()</code>
+                e <code>len()</code> sobre a sua sublista.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>notas_turma = [[14, 16, 12], [18, 17, 19], [10, 8, 13]]
+# acesso encadeado + média</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>A pegadinha da cópia rasa</h3>
+  </div>
+  <div class="statement">
+    <p>Prevê a saída e explica por que motivo, mesmo usando <code>[:]</code>,
+                alterar <code>b</code> também pode afetar <code>a</code> neste caso:</p><div class="code-block"><pre><code>a = [1, [2, 3]]
+b = a[:]
+b[0] = 99
+b[1][0] = 77
+print(a)
+print(b)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Dicionário aninhado</h3>
+  </div>
+  <div class="statement">
+    <p><code>turma = {"joao": {"idade": 20, "notas": [14, 16, 15]}, "irina":
+                {"idade": 22, "notas": [18, 19, 17]}}</code> guarda dados de dois alunos. Sem
+                ciclos, acede à terceira nota da irina e calcula a média das notas do joão
+                encadeando <code>sum()</code>/<code>len()</code> diretamente sobre o valor da
+                chave.</p>
+  </div>
+  <p class="solution-label">Ponto de partida</p><div class="code-block"><pre><code>turma = {
+    "joao": {"idade": 20, "notas": [14, 16, 15]},
+    "irina": {"idade": 22, "notas": [18, 19, 17]},
+}
+# acesso encadeado por chaves</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a class="primary" href="capitulo_002_respostas.html">Ver respostas deste capítulo</a>
+  <a href="index.html">Voltar ao índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html">Cap. 1</a>
+<a href="capitulo_002_exercicios.html" class="current">Cap. 2</a>
+<a href="capitulo_003_exercicios.html">Cap. 3</a>
+<a href="capitulo_004_exercicios.html">Cap. 4</a>
+<a href="capitulo_005_exercicios.html">Cap. 5</a>
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>

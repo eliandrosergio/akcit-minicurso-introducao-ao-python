@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 4 — Respostas — Funções</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 4 &middot; Respostas</p>
+<h1>Funções &mdash; Respostas</h1>
+<p class="page-lede">Soluções comentadas dos exercícios deste capítulo. Tenta resolver primeiro sem espreitar.</p>
+<div class="page-actions">
+  <a href="capitulo_004_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Função sem parâmetros nem retorno</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma função <code>boas_vindas()</code> que não recebe parâmetros nem
+                devolve valor, apenas imprime <code>"Bem-vindo(a) ao curso de Python!"</code>.
+                Chama a função duas vezes.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def boas_vindas():
+    print("Bem-vindo(a) ao curso de Python!")
+
+boas_vindas()
+boas_vindas()</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Bem-vindo(a) ao curso de Python!
+Bem-vindo(a) ao curso de Python!</code></pre></div>
+  <div class="explanation"><p>Mesmo sem parâmetros, os parênteses <code>()</code> são obrigatórios tanto
+                na declaração como na chamada da função.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Área do retângulo</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma função <code>area_retangulo(base, altura)</code> que recebe dois
+                parâmetros e devolve a área do retângulo. Chama-a com base=5 e altura=3, e
+                exibe o resultado.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def area_retangulo(base, altura):
+    return base * altura
+
+resultado = area_retangulo(5, 3)
+print(f"A área é {resultado} m².")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>A área é 15 m².</code></pre></div>
+  <div class="explanation"><p>Uma função com <code>return</code> devolve o valor calculado, mas não o
+                imprime sozinha &mdash; por isso guardamos o retorno em <code>resultado</code>
+                antes de o exibir.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Menor e maior com parâmetros nomeados</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma função <code>min_max(n1, n2)</code> que devolve dois valores: o
+                menor e o maior dos dois números recebidos. Chama-a passando os parâmetros por
+                nome, na ordem invertida (<code>n2=</code> primeiro, <code>n1=</code> depois), e
+                guarda os dois retornos em variáveis separadas.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def min_max(n1, n2):
+    menor = n1 if n1 &lt; n2 else n2
+    maior = n1 if n1 &gt; n2 else n2
+    return menor, maior
+
+pequeno, grande = min_max(n2=10, n1=25)
+print("Menor:", pequeno)
+print("Maior:", grande)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Menor: 10
+Maior: 25</code></pre></div>
+  <div class="explanation"><p>Quando os parâmetros são passados por nome (<code>n2=10, n1=25</code>), a
+                ordem em que aparecem na chamada deixa de importar &mdash; o Python liga cada
+                valor ao nome do parâmetro correspondente. Uma função pode devolver vários
+                valores separados por vírgula; ao chamá-la, é preciso uma variável para cada
+                um.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Média com *args</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma função <code>media(*notas)</code> que aceita uma quantidade
+                variável de notas e devolve a média delas. Testa com 3 e depois com 4 notas.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def media(*notas):
+    return sum(notas) / len(notas)
+
+print(media(15, 18, 12))
+print(media(10, 10, 10, 10))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>15.0
+10.0</code></pre></div>
+  <div class="explanation"><p>O <code>*</code> antes de <code>notas</code> recebe qualquer quantidade de
+                argumentos posicionais como uma tupla, por isso a mesma função funciona com 3,
+                4 ou qualquer outro número de notas.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Lambda + map(): Celsius para Fahrenheit</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>temperaturas_c = [0, 10, 20, 30, 100]</code>, usa
+                <code>map()</code> com uma função lambda para converter todas as temperaturas
+                para Fahrenheit (<code>F = C * 9/5 + 32</code>).</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>temperaturas_c = [0, 10, 20, 30, 100]
+
+temperaturas_f = list(map(lambda c: c * 9 / 5 + 32, temperaturas_c))
+
+print(temperaturas_f)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>[32.0, 50.0, 68.0, 86.0, 212.0]</code></pre></div>
+  <div class="explanation"><p><code>map(funcao, lista)</code> aplica <code>funcao</code> a cada elemento
+                da lista e devolve um iterável &mdash; por isso envolvemos o resultado em
+                <code>list()</code> para o ver como lista.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Lambda + filter(): palavras longas</h3>
+  </div>
+  <div class="statement">
+    <p>Dada <code>palavras = ["sol", "computador", "eu", "python", "ia",
+                "programação"]</code>, usa <code>filter()</code> com uma função lambda para
+                obter apenas as palavras com mais de 5 letras.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>palavras = ["sol", "computador", "eu", "python", "ia", "programação"]
+
+longas = list(filter(lambda p: len(p) &gt; 5, palavras))
+
+print(longas)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>['computador', 'python', 'programação']</code></pre></div>
+  <div class="explanation"><p><code>filter(funcao, lista)</code> mantém apenas os elementos para os quais
+                a função devolve <code>True</code>. Aqui, a lambda testa se o comprimento da
+                palavra é maior que 5.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Ficha de cadastro com **kwargs</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma função <code>ficha_cadastro(**dados)</code> que recebe qualquer
+                quantidade de campos nomeados e devolve uma única string com um campo por
+                linha, no formato <code>"campo: valor"</code>.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def ficha_cadastro(**dados):
+    linhas = []
+    for campo, valor in dados.items():
+        linhas.append(f"{campo}: {valor}")
+    return "\n".join(linhas)
+
+print(ficha_cadastro(nome="Marta", idade=30, cidade="Benguela"))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>nome: Marta
+idade: 30
+cidade: Benguela</code></pre></div>
+  <div class="explanation"><p><code>**dados</code> recebe os parâmetros nomeados como um dicionário, por
+                isso usamos <code>.items()</code> para percorrer os pares campo-valor.
+                <code>"\n".join(linhas)</code> junta a lista de linhas numa só string,
+                separada por quebras de linha.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Prevê a saída: UnboundLocalError</h3>
+  </div>
+  <div class="statement">
+    <p>Prevê a saída deste código e explica o papel do comando <code>global</code>.
+                O que aconteceria se, dentro de <code>incrementar_global</code>, a linha
+                <code>global contador</code> fosse removida?</p><div class="code-block"><pre><code>contador = 0
+
+def incrementar_global():
+    global contador
+    contador = contador + 1
+    print(contador)
+
+incrementar_global()
+incrementar_global()
+print(contador)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>contador = 0
+
+def incrementar_global():
+    global contador
+    contador = contador + 1
+    print(contador)
+
+incrementar_global()  # 1
+incrementar_global()  # 2
+print(contador)       # 2</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>1
+2
+2</code></pre></div>
+  <div class="explanation"><p><code>global contador</code> avisa o Python que qualquer atribuição a
+                <code>contador</code> dentro desta função deve afetar a variável global, e não
+                criar uma variável local nova. Sem essa linha, como a função faz uma atribuição
+                a <code>contador</code> (<code>contador = contador + 1</code>), o Python passa a
+                tratar <code>contador</code> como local em <em>toda</em> a função &mdash; e a
+                leitura do lado direito falharia com <code>UnboundLocalError: local variable
+                'contador' referenced before assignment</code>, porque essa variável local
+                ainda não tinha sido definida.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Uma função como parâmetro</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma função <code>melhor_valor(*valores, criterio)</code> que recebe uma
+                quantidade variável de números e uma função de critério (por exemplo, as
+                funções built-in <code>max</code> ou <code>min</code>) passada por nome, e
+                devolve o resultado de aplicar esse critério aos valores recebidos.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>def melhor_valor(*valores, criterio):
+    return criterio(valores)
+
+notas = [14, 9, 18, 12]
+print(melhor_valor(*notas, criterio=max))
+print(melhor_valor(*notas, criterio=min))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>18
+9</code></pre></div>
+  <div class="explanation"><p>Como <code>criterio</code> vem depois de <code>*valores</code>, o Python
+                exige que seja sempre passado por nome (é um &ldquo;parâmetro exclusivamente
+                nomeado&rdquo;). Passar <code>max</code> ou <code>min</code> como argumento
+                funciona porque, em Python, funções são valores como quaisquer outros e podem
+                ser guardadas em variáveis ou passadas para outras funções. O <code>*notas</code>
+                na chamada desempacota a lista em argumentos posicionais separados.</p></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a href="capitulo_004_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html">Cap. 1</a>
+<a href="capitulo_002_exercicios.html">Cap. 2</a>
+<a href="capitulo_003_exercicios.html">Cap. 3</a>
+<a href="capitulo_004_exercicios.html" class="current">Cap. 4</a>
+<a href="capitulo_005_exercicios.html">Cap. 5</a>
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>

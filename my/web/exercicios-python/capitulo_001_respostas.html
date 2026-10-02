@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 1 — Respostas — Sintaxe Básica, Variáveis e Tipos de Dados</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a href="index.html">Exercícios de Python</a>
+      <small>Prática guiada · básico ao avançado</small>
+    </div>
+    <button class="toggle" type="button" data-theme-toggle>
+      <span data-theme-icon>&#9789;</span>
+      <span data-theme-label>Tema escuro</span>
+    </button>
+  </div>
+</header>
+<main>
+<p class="page-kicker">Capítulo 1 &middot; Respostas</p>
+<h1>Sintaxe Básica, Variáveis e Tipos de Dados &mdash; Respostas</h1>
+<p class="page-lede">Soluções comentadas dos exercícios deste capítulo. Tenta resolver primeiro sem espreitar.</p>
+<div class="page-actions">
+  <a href="capitulo_001_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+<div class="level-section">
+  <h2><span class="level level-basico">Básico</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Apresentação pessoal</h3>
+  </div>
+  <div class="statement">
+    <p>Cria três variáveis: <code>nome</code> (string), <code>idade</code> (inteiro) e
+                <code>cidade</code> (string) com os teus próprios dados.</p>
+<p>Depois, usa um único <code>print()</code> com vírgulas para exibir a frase:
+                &ldquo;&lt;nome&gt; tem &lt;idade&gt; anos e mora em &lt;cidade&gt;.&rdquo;</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>nome = "Eliandro"
+idade = 24
+cidade = "Luanda"
+
+print(nome, "tem", idade, "anos e mora em", cidade + ".")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Eliandro tem 24 anos e mora em Luanda.</code></pre></div>
+  <div class="explanation"><p>O <code>print()</code> insere automaticamente um espaço entre cada valor
+                separado por vírgula (o parâmetro <code>sep</code>, cujo valor por defeito é
+                <code>' '</code>). Por isso juntámos <code>cidade</code> e <code>"."</code> com
+                <code>+</code>, para não sobrar um espaço antes do ponto final.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>As sete operações aritméticas</h3>
+  </div>
+  <div class="statement">
+    <p>Pede ao utilizador dois números com <code>input()</code> (converte-os para
+                <code>float</code>) e mostra o resultado das sete operações aritméticas do Python:
+                soma, subtração, multiplicação, divisão, divisão inteira, resto e potenciação.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>a = float(input("Primeiro número: "))
+b = float(input("Segundo número: "))
+
+print("Soma:", a + b)
+print("Subtração:", a - b)
+print("Multiplicação:", a * b)
+print("Divisão:", a / b)
+print("Divisão inteira:", a // b)
+print("Resto:", a % b)
+print("Potenciação:", a ** b)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Soma: 13.0
+Subtração: 7.0
+Multiplicação: 30.0
+Divisão: 3.3333333333333335
+Divisão inteira: 3.0
+Resto: 1.0
+Potenciação: 1000.0</code></pre></div>
+  <div class="explanation"><p>Exemplo com a = 10 e b = 3. Repara que, como convertemos a e b para
+                <code>float</code>, mesmo a divisão inteira (<code>//</code>) devolve um
+                resultado do tipo decimal (3.0 em vez de 3).</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Descobrir o tipo de cada variável</h3>
+  </div>
+  <div class="statement">
+    <p>Cria quatro variáveis: uma <code>int</code>, uma <code>float</code>, uma
+                <code>str</code> e uma <code>bool</code>, cada uma com um valor à tua escolha.
+                Usa a função <code>type()</code> para mostrar o tipo de cada uma.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>numero = 10
+decimal = 3.14
+texto = "Python"
+verdadeiro = True
+
+print(type(numero))
+print(type(decimal))
+print(type(texto))
+print(type(verdadeiro))</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;</code></pre></div>
+  <div class="explanation"><p>Em Python não é preciso declarar o tipo de uma variável: o interpretador
+                decide o tipo a partir do valor atribuído. A função <code>type()</code>
+                permite confirmar esse tipo em qualquer altura.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-intermediario">Intermediário</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Cálculo dentro da f-string</h3>
+  </div>
+  <div class="statement">
+    <p>Cria uma variável <code>idade</code> com a tua idade atual. Usando f-string,
+                escreve numa única linha uma frase que diga quantos anos terás daqui a 10 anos,
+                fazendo o cálculo <strong>dentro</strong> das chavetas <code>{}</code> da própria
+                f-string (sem calcular numa variável separada antes).</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>idade = 24
+print(f"Tenho {idade} anos. Daqui a 10 anos terei {idade + 10} anos.")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Tenho 24 anos. Daqui a 10 anos terei 34 anos.</code></pre></div>
+  <div class="explanation"><p>Dentro de uma f-string, qualquer expressão Python válida colocada entre
+                <code>{}</code> é calculada antes de o texto final ser montado — incluindo
+                operações aritméticas, como <code>idade + 10</code>.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Prevê a saída: == contra is</h3>
+  </div>
+  <div class="statement">
+    <p>Sem executar, diz o que será impresso em cada uma das quatro linhas abaixo
+                e explica porquê. Depois corre o código para confirmar.</p><div class="code-block"><pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+print(a == b)
+print(a is b)
+print(a is c)
+print(b == c)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b)   # compara valores
+print(a is b)   # compara identidade (mesmo objeto?)
+print(a is c)
+print(b == c)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>True
+False
+True
+True</code></pre></div>
+  <div class="explanation"><p><code>==</code> compara <em>valores</em>; <code>is</code> compara se duas
+                variáveis apontam para o <em>mesmo objeto</em> na memória. <code>a</code> e
+                <code>b</code> têm valores iguais, mas foram criadas de forma independente
+                &mdash; por isso <code>a is b</code> é <code>False</code>. Já <code>c = a</code>
+                não cria uma cópia: apenas dá um segundo nome ao mesmo objeto, por isso
+                <code>a is c</code> é <code>True</code>. Como <code>b</code> e <code>c</code>
+                têm o mesmo valor, <code>b == c</code> também é <code>True</code>.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>Par ou ímpar, sem usar if</h3>
+  </div>
+  <div class="statement">
+    <p>Pede um número inteiro ao utilizador. Sem usar <code>if</code> (as
+                condicionais são o assunto do próximo capítulo), guarda o resultado de uma
+                comparação relacional com o operador <code>%</code> numa variável booleana
+                <code>eh_par</code>, e mostra uma frase com f-string que use essa variável
+                diretamente dentro do texto.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>numero = int(input("Digite um número inteiro: "))
+eh_par = numero % 2 == 0
+print(f"O número {numero} é par? {eh_par}")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>O número 7 é par? False</code></pre></div>
+  <div class="explanation"><p><code>numero % 2</code> calcula o resto da divisão por 2; se o resto for
+                0, o número é par. O operador relacional <code>==</code> compara esse resto
+                com 0 e devolve diretamente <code>True</code> ou <code>False</code>, que
+                guardamos em <code>eh_par</code>.</p></div>
+</article>
+
+</div><div class="level-section">
+  <h2><span class="level level-avancado">Avançado</span></h2>
+  <article class="exercise" id="ex-1">
+  <div class="exercise-head">
+    <h3>Área e perímetro com formatação</h3>
+  </div>
+  <div class="statement">
+    <p>Uma pizzaria quer calcular a área e o perímetro (circunferência) de pizzas
+                redondas. Pede ao utilizador o raio da pizza em cm e, usando a biblioteca
+                <code>math</code> e f-strings com formatação de duas casas decimais
+                (<code>:.2f</code>), mostra a área (&pi;&middot;r&sup2;) e o perímetro
+                (2&middot;&pi;&middot;r).</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>import math
+
+raio = float(input("Raio da pizza em cm: "))
+area = math.pi * raio ** 2
+perimetro = 2 * math.pi * raio
+
+print(f"Área: {area:.2f} cm²")
+print(f"Perímetro: {perimetro:.2f} cm")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Área: 706.86 cm²
+Perímetro: 94.25 cm</code></pre></div>
+  <div class="explanation"><p>Exemplo com raio = 15. A notação <code>:.2f</code> dentro da f-string
+                formata um número decimal com exatamente duas casas depois da vírgula &mdash;
+                é diferente de arredondar antes; a formatação acontece só na hora de exibir.</p></div>
+</article>
+
+<article class="exercise" id="ex-2">
+  <div class="exercise-head">
+    <h3>Troco em notas, só com // e %</h3>
+  </div>
+  <div class="statement">
+    <p>Um multibanco só tem notas de 2000, 1000, 500 e 100 Kz. Escreve um programa
+                que recebe um valor inteiro em Kz (via <code>input()</code>) e calcula quantas
+                notas de cada valor serão entregues, usando apenas divisão inteira
+                (<code>//</code>) e resto (<code>%</code>) em cadeia &mdash; sem usar
+                <code>if</code> nem ciclos.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>valor = int(input("Valor a levantar (Kz): "))
+
+notas_2000 = valor // 2000
+resto = valor % 2000
+notas_1000 = resto // 1000
+resto = resto % 1000
+notas_500 = resto // 500
+resto = resto % 500
+notas_100 = resto // 100
+resto_final = resto % 100
+
+print(f"Notas de 2000: {notas_2000}")
+print(f"Notas de 1000: {notas_1000}")
+print(f"Notas de 500: {notas_500}")
+print(f"Notas de 100: {notas_100}")
+print(f"Valor que não é possível entregar: {resto_final} Kz")</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Notas de 2000: 1
+Notas de 1000: 1
+Notas de 500: 1
+Notas de 100: 2
+Valor que não é possível entregar: 50 Kz</code></pre></div>
+  <div class="explanation"><p>Exemplo com valor = 3750. A cada passo, <code>//</code> dá quantas notas
+                cabem naquele valor, e <code>%</code> dá o que sobra para o passo seguinte
+                &mdash; a mesma lógica usada por caixas eletrónicos reais.</p></div>
+</article>
+
+<article class="exercise" id="ex-3">
+  <div class="exercise-head">
+    <h3>A mesma frase de três formas</h3>
+  </div>
+  <div class="statement">
+    <p>Dado <code>nome = "Eliandro"</code> e <code>linguagem = "Python"</code>,
+                escreve a mesma frase &ldquo;Eliandro está a aprender Python.&rdquo; de três
+                formas diferentes: (1) concatenação com <code>+</code>; (2) o método
+                <code>.format()</code> com índices posicionais; (3) f-string. No final, usa o
+                operador <code>==</code> para confirmar que as três strings resultantes são
+                idênticas.</p>
+  </div>
+  <p class="solution-label">Solução</p><div class="code-block"><pre><code>nome = "Eliandro"
+linguagem = "Python"
+
+frase1 = nome + " está a aprender " + linguagem + "."
+frase2 = "{0} está a aprender {1}.".format(nome, linguagem)
+frase3 = f"{nome} está a aprender {linguagem}."
+
+print(frase1)
+print(frase2)
+print(frase3)
+print(frase1 == frase2 == frase3)</code></pre><button class="copy-btn" type="button">Copiar</button></div>
+  <p class="output-label">Saída esperada</p><div class="code-block"><pre><code>Eliandro está a aprender Python.
+Eliandro está a aprender Python.
+Eliandro está a aprender Python.
+True</code></pre></div>
+  <div class="explanation"><p>As três abordagens produzem exatamente a mesma string, por isso a
+                comparação encadeada <code>frase1 == frase2 == frase3</code> devolve
+                <code>True</code>. Desde o Python 3.6, as f-strings costumam ser a forma mais
+                legível e direta das três.</p></div>
+</article>
+
+</div>
+<div class="page-actions">
+  <a href="capitulo_001_exercicios.html">Voltar aos exercícios</a>
+  <a href="index.html">Índice</a>
+</div>
+
+<nav class="chapter-nav" aria-label="Capítulos">
+<a href="index.html">Início</a>
+<a href="capitulo_001_exercicios.html" class="current">Cap. 1</a>
+<a href="capitulo_002_exercicios.html">Cap. 2</a>
+<a href="capitulo_003_exercicios.html">Cap. 3</a>
+<a href="capitulo_004_exercicios.html">Cap. 4</a>
+<a href="capitulo_005_exercicios.html">Cap. 5</a>
+</nav>
+</main>
+<footer>
+  <p>Baseado no Microcurso &ldquo;AKCIT: Introdução ao Python&rdquo; (AKCIT / UFG). Conteúdo de apoio criado para prática pessoal.</p>
+  <p>
+    Feito com 🩵️ por Eliandro Sérgio &mdash;
+    <a href="https://github.com/eliandrosergio">GitHub</a> |
+    <a href="https://eliandro.ngolabyte.ao">Portfólio</a> |
+    <a href="mailto:eliandrosergio42@gmail.com">Email</a>
+  </p>
+  <p>
+    Licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">CC BY-NC-SA 4.0</a>: pode reutilizar e adaptar, desde que cite o autor e não use para fins lucrativos. Fonte:
+    <a href="https://github.com/eliandrosergio/akcit-minicurso-introducao-ao-python">github.com/eliandrosergio/akcit-minicurso-introducao-ao-python</a>
+  </p>
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>
