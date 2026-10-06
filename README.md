@@ -17,6 +17,7 @@ akcit-minicurso-introducao-ao-python/
 │   ├── pdf/
 │   │   └── Introdução a Python - AKCIT.pdf
 │   └── notebooks/               # notebooks oficiais do curso (Google Colab)
+│       ├── AKCIT_NLP_M2_Colab_Unidade_2_Finalizado.ipynb
 │       ├── AKCIT_NLP_M2_Colab_Unidade_3_Finalizado.ipynb
 │       ├── AKCIT_NLP_M2_Colab_Unidade_4_Finalizado.ipynb
 │       ├── AKCIT_NLP_M2_Colab_Unidade_5_Finalizado.ipynb
@@ -55,16 +56,15 @@ Os ficheiros em `my/` são trabalhos derivados do livro, escritos e resolvidos p
 ## `material/` — material de referência (não é meu)
 
 - **`pdf/Introdução a Python - AKCIT.pdf`** — o livro completo, na versão oficial do AKCIT/UFG.
-- **`notebooks/`** — os notebooks oficiais do curso (AKCIT/Colab), das Unidades 3 a 6. A correspondência com os capítulos é:
+- **`notebooks/`** — os notebooks oficiais do curso (AKCIT/Colab), das Unidades 2 a 6. A correspondência com os capítulos é:
 
-  | Notebook do curso | Capítulo do livro | O que aborda |
+  | Notebook do curso | O que aborda |
   | --- | --- | --- |
-  | Unidade 3 | Capítulo 2 | Estruturas de dados (listas, tuplas, dicionários, conjuntos) |
-  | Unidade 4 | Capítulo 3 | Estruturas de controlo de fluxo (`if`, `for`, `while`, `break`, `continue`, `match`, `try-except`) |
-  | Unidade 5 | Capítulo 4 | Funções (nomeadas, `lambda`, `*args`, `**kwargs`, escopo) |
-  | Unidade 6 | Capítulo 5 | Manipulação de arquivos |
-
-  A Unidade 1 e a Unidade 2 (introdução e sintaxe básica) não estão neste repositório.
+  | Unidade 2 | Sintaxe Básica do Python (Variáveis e Tipos de Dados) |
+  | Unidade 3 | Estruturas de dados (listas, tuplas, dicionários, conjuntos) |
+  | Unidade 4 | Estruturas de controlo de fluxo (`if`, `for`, `while`, `break`, `continue`, `match`, `try-except`) |
+  | Unidade 5 | Funções (nomeadas, `lambda`, `*args`, `**kwargs`, escopo) |
+  | Unidade 6 | Manipulação de arquivos |
 
 ## `my/` — os meus ficheiros de estudo
 
@@ -76,7 +76,7 @@ Um notebook por capítulo, com o enunciado em Markdown e a minha resolução em 
 - `capitulo_02.ipynb` — Estruturas de dados *(criação, acesso, modificação, *slicing*, métodos de lista, tuplas imutáveis, dicionários, conjuntos)*
 - `capitulo_03.ipynb` — Estruturas de controlo de fluxo *(`if/elif/else`, `match-case`, `for`, `while`, *comprehensions*, `break`/`continue`/`pass`, `try-except`)*
 - `capitulo_04.ipynb` — Funções *(`def`, parâmetros e retorno, múltiplos retornos, `*args`/`**kwargs`, `lambda`, `map()`/`filter()`, escopo local/global)*
-- `capitulo_05.ipynb` — Manipulação de arquivos *(modos `r`/`w`/`a`, bloco `with`, leitura e escrita)* — **em progresso**
+- `capitulo_05.ipynb` — Manipulação de arquivos *(modos `r`/`w`/`a`, bloco `with`, leitura e escrita)*
 - `listas_encadeadas.ipynb` — listas multidimensionais (1D, 2D e 3D) e indexação aninhada
 
 ### `my/web/exercicios-python/` — site de exercícios
